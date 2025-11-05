@@ -5,7 +5,7 @@ const Item = require('./models/course'); // Import your Mongoose Model
 
 const app = express();
 const port = 3000;
-const MONGODB_URI = 'YOUR_MONGODB_CONNECTION_STRING'; // ⬅️ REPLACE THIS
+const MONGODB_URI = 'mongodb+srv://ashish959m_db_user:gnOO1DI3fkBTYvWm@electives.1d9u7oy.mongodb.net/?appName=electives';
 
 // --- Middleware Setup ---
 // Use body-parser to parse incoming JSON data from the request body
@@ -20,7 +20,7 @@ mongoose.connect(MONGODB_URI)
 
 // --- 💡 The Express Route for Bulk Insertion ---
 
-app.post('/api/items/bulk', async (req, res) => {
+app.post('/selektive/courses', async (req, res) => {
     // 1. Get the data array from the request body
     const dataArray = req.body;
 
@@ -51,6 +51,12 @@ app.post('/api/items/bulk', async (req, res) => {
             error: error.message 
         });
     }
+});
+app.get('/', (req, res) => {
+    // Instead of saying "Cannot GET", the server sends this response:
+    res.send('Server is up and running! Welcome to the API.');
+    // Or you can send a JSON status:
+    // res.json({ status: 'ok', message: 'API is healthy' });
 });
 
 
