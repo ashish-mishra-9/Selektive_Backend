@@ -2,10 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Item = require('./models/course'); // Import your Mongoose Model
+require('dotenv').config();
 
 const app = express();
 const port = 3000;
-const MONGODB_URI = 'mongodb+srv://ashish959m_db_user:gnOO1DI3fkBTYvWm@electives.1d9u7oy.mongodb.net/?appName=electives';
+const MONGODB_URI = process.env.MONGODB_URI;
 
 // --- Middleware Setup ---
 // Use body-parser to parse incoming JSON data from the request body
